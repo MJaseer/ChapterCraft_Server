@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": "./",
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  // ts-node settings we added
+  "ts-node": {
+    "esm": true,
+    "compiler": "typescript"
+  }
+  // *****************
+}
