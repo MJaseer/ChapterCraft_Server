@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 
 import dotenv from "dotenv";
 
-import { Finds } from "../../repositeries/common/find";
-import transactionSchema from "src/models/transaction";
-import { payload } from "src/middlewares/autharisation/adminValidator";
+import Finds from "../../repositeries/common/find.js";
+import transactionSchema from "../../models/transaction.js";
+import { payload } from "../../middlewares/autharisation/adminValidator.js";
 dotenv.config();
 
 interface AuthenticatedRequest extends Request {

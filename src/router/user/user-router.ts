@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { UserClass } from "../../controllers/user/user.js";
+import UserClass from "../../  ../../controllers/user/user.js";
 // import { validation } from "../../middlewares/validation/yup.js";
 
 const user = new UserClass();

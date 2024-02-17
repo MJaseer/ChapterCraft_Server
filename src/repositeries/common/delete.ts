@@ -1,10 +1,10 @@
 import { Model } from "mongoose";
 import { IUser } from "../../models/user.js";
 import { ITransaction } from "../../models/transaction.js"
-import { IBook } from "../../models/book.js"
+import { IProduct } from "../../models/product.js"
 
 
-export const deleteOne = async (item: string, value: string, Schema: Model<ITransaction | IUser | IBook>) => {
+export const deleteOne = async (item: string, value: string, Schema: Model<ITransaction | IUser | IProduct>) => {
     try {
         const data = await Schema.deleteOne({ [item]: value }, { new: true });
         if (!data) throw new Error('No data found');
@@ -16,7 +16,7 @@ export const deleteOne = async (item: string, value: string, Schema: Model<ITran
     }
 }
 
-export const deleteMany = async (item: string, value: string, Schema: Model<ITransaction | IUser | IBook>) => {
+export const deleteMany = async (item: string, value: string, Schema: Model<ITransaction | IUser | IProduct>) => {
     try {
         const data = await Schema.deleteMany({ [item]: value }, { new: true })
         if (!data) throw new Error('No data found');

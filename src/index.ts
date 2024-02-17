@@ -4,11 +4,11 @@ dotenv.config();
 import morgan from "morgan";
 import cors from 'cors'
 
-import connectDataBase from "./config/database/mongo";
-import userRoute from "./router/user/user-router";
-import bookRoute from "./router/book/book-router"
+import connectDataBase from "./config/database/mongo.js";
+import userRoute from "./router/user/user-router.js";
+import productRoute from "./router/product/product-router.js"
 
-import { VerifyAdmin } from "./middlewares/autharisation/adminValidator"
+import { VerifyAdmin } from "./middlewares/autharisation/adminValidator.js"
 
 const app = express()
 
@@ -29,9 +29,9 @@ connectDataBase()
 const adminVerificator = new VerifyAdmin()
 
 app.use("/api", userRoute)
-app.use("/api/book", adminVerificator.verifyToken, bookRoute)
+app.use("/api/product", adminVerificator.verifyToken, productRoute)
 
-const port = process.env.PORT
+const port = process.env.PORT || 3001
 
 app.listen(port, () => {
     console.log(`The server start at running on port ${port}`);

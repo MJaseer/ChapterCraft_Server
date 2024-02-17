@@ -1,6 +1,6 @@
 import { Document, Model, Schema } from "mongoose";
 
-export class Finds{
+class Finds{
 
     findOne = async <T>(item: string, value: string, itemSchema: Model<T & Document>,from?:string,) => {
         try {
@@ -45,3 +45,4 @@ export class Finds{
 }
 
 
+export default Finds

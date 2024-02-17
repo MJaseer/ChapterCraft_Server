@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { Request, Response, NextFunction } from 'express';
 
-import { UserRole } from 'src/models/user';
+import { IUser } from '../../models/user.js';
 
 dotenv.config();
 
@@ -12,7 +12,6 @@ interface AuthenticatedRequest extends Request {
 
 export interface payload {
     userId:string,
-    role:UserRole
 }
 export class VerifyAdmin {
 

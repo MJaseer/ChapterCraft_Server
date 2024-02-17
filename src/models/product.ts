@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface Book {
+export interface Product {
     name: string;
     author: string;
     category: string;
@@ -10,7 +10,7 @@ export interface Book {
     createdAt?: Date
 }
 
-export interface IBook extends Document {
+export interface IProduct extends Document {
     name: string;
     author: string;
     category: string;
@@ -20,7 +20,7 @@ export interface IBook extends Document {
     createdAt?: Date
 }
 
-const BookSchema = new Schema<IBook>({
+const ProductSchema = new Schema<IProduct>({
     name: { type: String, required: true },
     author: { type: String, required: true },
     category: { type: String, required: true },
@@ -32,4 +32,4 @@ const BookSchema = new Schema<IBook>({
 })
 
 
-export default mongoose.model<IBook>("Book", BookSchema);
+export default mongoose.model<IProduct>("Product", ProductSchema);

@@ -1,11 +1,11 @@
 import { Document, Model } from "mongoose";
 import { User } from "../../models/user.js";
 import { Transaction } from "../../models/transaction.js";
-import { Book } from "../../models/book.js";
+import { Product } from "../../models/product.js";
 
-export class Creates {
+class Creates {
 
-    create = async <T>(item: string, value: (User | Transaction | Book), itemSchema: Model<T & Document>) => {
+    create = async <T>(item: string, value: (User | Transaction | Product), itemSchema: Model<T & Document>) => {
         try {
             const data = new itemSchema(value)
             if (!data) throw new Error('No data found');
@@ -20,3 +20,4 @@ export class Creates {
 
 }
 
+export default Creates

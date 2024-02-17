@@ -19,7 +19,7 @@ export default () => {
 
             }).catch(() => {
                 console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);
-                setTimeout(connectWithRetry, 5000)
+                // setTimeout(connectWithRetry, 5000)
             })
     }
     connectWithRetry()

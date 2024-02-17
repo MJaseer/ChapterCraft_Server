@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "lib": [
-      "ESNext"
-    ],
     "target": "ES6",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -22,7 +19,7 @@
   // ts-node settings we added
   "ts-node": {
     "esm": true,
-    "compiler": "typescript"
+    "compiler": "typescript",
   }
   // *****************
 }
