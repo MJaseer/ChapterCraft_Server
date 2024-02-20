@@ -16,7 +16,7 @@ export interface IProduct extends Document {
     category: string;
     description: string;
     isAvailable: boolean;
-    image: string;
+    image:any;
     createdAt?: Date
 }
 
@@ -26,7 +26,7 @@ const ProductSchema = new Schema<IProduct>({
     category: { type: String, required: true },
     description: { type: String, required: true },
     isAvailable: { type: Boolean, required: true },
-    image: { type: String, required: true },
+    image: { type: Array,default : [] , required: true },
 }, {
     timestamps: true
 })

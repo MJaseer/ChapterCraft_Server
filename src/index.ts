@@ -26,10 +26,10 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDataBase()
 
-const adminVerificator = new VerifyAdmin()
+// const adminVerificator = new VerifyAdmin()
 
 app.use("/api", userRoute)
-app.use("/api/product", adminVerificator.verifyToken, productRoute)
+app.use("/api/product", productRoute)
 
 const port = process.env.PORT || 3001
 

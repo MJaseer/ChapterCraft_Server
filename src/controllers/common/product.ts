@@ -4,22 +4,34 @@ import productSchema, { Product } from "../../models/product.js";
 import dotenv from "dotenv";
 import Creates from "../../repositeries/common/create.js";
 import Finds from "../../repositeries/common/find.js";
+import { log } from "console";
 dotenv.config();
 
+interface imageRequest extends Request {
+    images: any;
+}
 export class ProductClass {
 
-    private createService!: Creates
-    private findService!: Finds
+    createService!: Creates
+    findService!: Finds
 
     constructor() {
         this.createService = new Creates()
         this.findService = new Finds()
     }
 
-    addProduct = async (req: Request, res: Response) => {
+    addProduct = async (req: any, res: Response) => {
 
         try {
-            const { name, description, isAvailable, author, category, image } = req.body
+            // console.log('reques in controller: ',req);
+            debugger
+            const { name, description, isAvailable, author, category } = req.body
+            const image = req.images
+            let imageData = []
+            for (let index = 0; index < image.length; index++) {
+                const element = image[index];
+                imageData.push({ element })
+            }
             const productData: Product = {
                 name: name,
                 description: description,
@@ -65,6 +77,19 @@ export class ProductClass {
 
             const productId = req.params.id;
             const productData = await this.findService.findById('product', productId, productSchema);
+
+            productData.image.forEach((data: any) => {
+                console.log(data);
+                const imageUrl = data;
+
+                // Split the string based on '/' and get the last element
+                const parts = imageUrl.split('/');
+                const value = parts[parts.length - 1];
+
+                console.log(value); // Output: 'sdbc2oaq3ttzrex2uiat'
+
+
+            })
 
             await productData.deleteOne()
 

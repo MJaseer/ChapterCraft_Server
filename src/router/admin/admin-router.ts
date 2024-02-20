@@ -8,9 +8,9 @@ const admin = new AdminClass();
 
 const router = Router()
 
-// router.post('/register',admin)
+router.post('/login',admin.adminLogin)
 
-// router.post('/login',admin.userLogin)
+
 // not finished
 // router.put('/edit-profile',user.updateProfile)
 
