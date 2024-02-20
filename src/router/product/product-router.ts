@@ -2,7 +2,7 @@ import { Router } from "express";
 import { ProductClass } from "../../controllers/common/product.js"
 
 import upload from '../../middlewares/multer/multer.js'
-import uploadMultiple from "../../middlewares/upload/uploadFile.js";
+import uploadMultiple from "../../middlewares/cloudinary/uploadFile.js";
 
 const product = new ProductClass();
  

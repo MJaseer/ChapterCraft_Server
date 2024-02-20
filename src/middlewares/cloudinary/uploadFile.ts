@@ -1,8 +1,5 @@
-import express from 'express'
-import multer from 'multer'
 import { v2 as cloudinary } from 'cloudinary'
 import asyncHandler from 'express-async-handler'
-import { log } from 'console';
 
 // configuration cloudinary
 interface imageRequest extends Request {
@@ -39,7 +36,7 @@ const uploadMultiple = asyncHandler(async (req:any, res, next) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json(`internal errorr at multiple.js : ${error}`)
+        res.status(500).json(`internal errorr at multiple.ts : ${error}`)
 
     }
 })

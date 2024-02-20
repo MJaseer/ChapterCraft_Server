@@ -4,7 +4,8 @@ import productSchema, { Product } from "../../models/product.js";
 import dotenv from "dotenv";
 import Creates from "../../repositeries/common/create.js";
 import Finds from "../../repositeries/common/find.js";
-import { log } from "console";
+import { v2 as cloudinary } from 'cloudinary'
+
 dotenv.config();
 
 interface imageRequest extends Request {
@@ -78,7 +79,7 @@ export class ProductClass {
             const productId = req.params.id;
             const productData = await this.findService.findById('product', productId, productSchema);
 
-            productData.image.forEach((data: any) => {
+            productData.image.forEach(async (data: any) => {
                 console.log(data);
                 const imageUrl = data;
 
@@ -87,8 +88,7 @@ export class ProductClass {
                 const value = parts[parts.length - 1];
 
                 console.log(value); // Output: 'sdbc2oaq3ttzrex2uiat'
-
-
+                await cloudinary.uploader.destroy(value)
             })
 
             await productData.deleteOne()
